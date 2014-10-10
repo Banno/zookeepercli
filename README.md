@@ -110,7 +110,25 @@ The tool was built in order to allow with shell scripting seamless integration w
 There is another, official command line tool for ZooKeeper that the author found inadequate 
 in terms of output format and output control, as well as large footprint. 
 **zookeepercli** overcomes those limitations and provides with quick, well formatted output as well as
-enhanced functionality. 
+enhanced functionality.
+
+### Docker Usage
+
+Execute `docker run x/zookeepercli` instead of just `zookeepercli`. The Docker container accepts the same arguments.
+
+    $ docker run x/zookeepercli
+    Usage of /usr/bin/zookeepercli:
+      -c="": command, required (exists|get|ls|lsr|create|creater|set|delete)
+      -debug=false: debug mode (very verbose)
+      -force=false: force operation
+      -format="txt": output format (txt|json)
+      -servers="": srv1[:port1][,srv2[:port2]...]
+      -stack=false: add stack trace upon error
+      -verbose=false: verbose
+
+    $ docker run x/zookeepercli -servers srv-1,srv-2,srv-3 -c ls /parent
+    child1
+    child2
 
 ### License
 
