@@ -5,12 +5,13 @@
 # Requires fpm: https://github.com/jordansissel/fpm
 #
 
-release_version="1.0.4"
+release_version="1.0.5"
 release_dir=/tmp/zookeepercli
 rm -rf $release_dir/*
 mkdir -p $release_dir
 
 cd  $(dirname $0)
+for f in $(find . -name "*.go"); do go fmt $f; done
 
 GOPATH=/usr/share/golang:$(pwd)
 go build -o $release_dir/zookeepercli ./src/github.com/outbrain/zookeepercli/main.go
